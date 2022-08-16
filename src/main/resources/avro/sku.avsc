@@ -1,0 +1,15 @@
+{
+  "name": "Sku",
+  "type": "record",
+  "namespace": "com.acme.avro",
+  "fields": [
+    {
+      "name": "skuNumber",
+      "type": "string"
+    },
+    {
+      "name": "styleNumber",
+      "type": "string"
+    }
+  ]
+}

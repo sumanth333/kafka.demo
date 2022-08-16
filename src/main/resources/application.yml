@@ -1,0 +1,33 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /
+#spring:
+#  kafka:
+#    bootstrap-servers: localhost:9092
+#    schema:
+#      registry:
+#        url: http://localhost:8081
+#    timeout: 10
+#    sslenabled: false
+#    producer:
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: org.apache.kafka.common.serialization.Avr
+#      retries: 0
+#    properties:
+#      spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+#      spring.deserializer.value.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+##      io.confluent.kafka.serializers.KafkaAvroDeserializer
+#    listener:
+#      ack-mode: MANUAL_IMMEDIATE
+#    back-off:
+#      max-attempts: 5
+#      interval: 1000
+
+producer:
+  topic:
+    Sku: SKU
+
+consumer:
+  topic:
+    Sku: SKU
