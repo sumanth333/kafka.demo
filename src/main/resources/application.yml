@@ -2,32 +2,28 @@ server:
   port: 8080
   servlet:
     context-path: /
-#spring:
-#  kafka:
-#    bootstrap-servers: localhost:9092
-#    schema:
-#      registry:
-#        url: http://localhost:8081
-#    timeout: 10
-#    sslenabled: false
-#    producer:
-#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-#      value-serializer: org.apache.kafka.common.serialization.Avr
-#      retries: 0
-#    properties:
-#      spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
-#      spring.deserializer.value.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
-##      io.confluent.kafka.serializers.KafkaAvroDeserializer
-#    listener:
-#      ack-mode: MANUAL_IMMEDIATE
-#    back-off:
-#      max-attempts: 5
-#      interval: 1000
 
-producer:
-  topic:
-    Sku: SKU
-
-consumer:
-  topic:
-    Sku: SKU
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+    properties:
+      # CCloud broker connection parameters
+      sslenabled: false
+      # CCloud Schema Registry Connection parameter
+      schema.registry.url: http://localhost:8081
+#      basic.auth.credentials.source: USER_INFO   (4)
+#      schema.registry.basic.auth.user.info: sr_ccloud_key:sr_ccloud_key   (5)
+    consumer:
+      group-id: group_id
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+      topic:
+        user: USER_TOPIC
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+      topic:
+        user: USER_TOPIC
+    template:
+      default-topic:

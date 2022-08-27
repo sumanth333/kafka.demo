@@ -1,4 +1,4 @@
-package com.example.kafka.demo.service;
+package com.example.kafka.demo.service.producer;
 
 import com.acme.avro.Sku;
 import io.confluent.kafka.serializers.AbstractKafkaAvroSerDeConfig;
@@ -15,7 +15,7 @@ public class SkuAvroProducer {
     private static KafkaProducer kafkaProducer;
 
     public static KafkaProducer<String, Sku> getProducer() {
-        if(kafkaProducer == null) {
+//        if(kafkaProducer == null) {
             final Properties props = new Properties();
             props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
             props.put(ProducerConfig.ACKS_CONFIG, "all");
@@ -25,7 +25,7 @@ public class SkuAvroProducer {
             props.put(AbstractKafkaAvroSerDeConfig.SCHEMA_REGISTRY_URL_CONFIG, "http://localhost:8081");
 
             kafkaProducer = new KafkaProducer<String, Sku>(props);
-        }
+//        }
         return kafkaProducer;
     }
 
