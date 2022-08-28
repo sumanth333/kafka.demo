@@ -3,27 +3,27 @@ server:
   servlet:
     context-path: /
 
-spring:
-  kafka:
-    bootstrap-servers: localhost:9092
-    properties:
-      # CCloud broker connection parameters
-      sslenabled: false
-      # CCloud Schema Registry Connection parameter
-      schema.registry.url: http://localhost:8081
-#      basic.auth.credentials.source: USER_INFO   (4)
-#      schema.registry.basic.auth.user.info: sr_ccloud_key:sr_ccloud_key   (5)
-    consumer:
-      group-id: group_id
-      auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
-      topic:
-        user: USER_TOPIC
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
-      topic:
-        user: USER_TOPIC
-    template:
-      default-topic:
+#spring:
+#  kafka:
+#    bootstrap-servers: http://localhost:9092
+#    properties:
+#      # CCloud broker connection parameters
+#      sslenabled: false
+#      # CCloud Schema Registry Connection parameter
+#      schema.registry.url: http://localhost:8081
+##      basic.auth.credentials.source: USER_INFO   (4)
+##      schema.registry.basic.auth.user.info: sr_ccloud_key:sr_ccloud_key   (5)
+#    consumer:
+#      group-id: group_id
+#      auto-offset-reset: earliest
+#      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+#      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+#      topic:
+#        user: USER_TOPIC
+#    producer:
+#      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+#      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+#      topic:
+#        user: USER_TOPIC
+#    template:
+#      default-topic:
